@@ -17,6 +17,7 @@ else:
 st.set_page_config(page_title="Electricity Bill Predictor", layout="wide")
 
 # 📈 Correlation Data which we derived from the notebook
+correlation_data = {
     'Fan': 0.410682,
     'Refrigerator': 0.376816,
     'AirConditioner': 0.261845,
