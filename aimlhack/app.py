@@ -5,6 +5,10 @@ import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
+import os
+
+model_path = os.path.join(os.path.dirname(__file__), "electricity_model.pkl")
+model = joblib.load(model_path)
 
 # Set Streamlit page config
 st.set_page_config(page_title="Electricity Bill Predictor", layout="wide")
