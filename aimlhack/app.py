@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import joblib
 import plotly.express as px
+import os
 
 # 🚧 Load model safely using absolute path
 model_path = os.path.join(os.path.dirname(__file__), "electricity_model.pkl")
