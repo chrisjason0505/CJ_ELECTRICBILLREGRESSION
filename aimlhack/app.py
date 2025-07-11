@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
-import os
 import plotly.express as px
 
 # 🚧 Load model safely using absolute path
