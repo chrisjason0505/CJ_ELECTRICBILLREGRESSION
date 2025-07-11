@@ -5,7 +5,7 @@ import joblib
 import plotly.express as px
 import os
 
-# 🚧 Load model safely using absolute path
+# model loading
 model_path = os.path.join(os.path.dirname(__file__), "electricity_model.pkl")
 if os.path.exists(model_path):
     model = joblib.load(model_path)
@@ -16,8 +16,7 @@ else:
 # ⚙️ Page config
 st.set_page_config(page_title="Electricity Bill Predictor", layout="wide")
 
-# 📈 Correlation Data (replace with real data if needed)
-correlation_data = {
+# 📈 Correlation Data which we derived from the notebook
     'Fan': 0.410682,
     'Refrigerator': 0.376816,
     'AirConditioner': 0.261845,
@@ -34,7 +33,6 @@ corr_df = pd.DataFrame({
     'Correlation with Bill': list(correlation_data.values())
 }).sort_values('Correlation with Bill', ascending=False)
 
-# 📊 Correlation Plot
 fig = px.bar(
     corr_df,
     x='Feature',
@@ -50,16 +48,16 @@ fig.update_layout(yaxis=dict(range=[0, 1]), uniformtext_minsize=8)
 
 st.plotly_chart(fig, use_container_width=True)
 
-# 🧾 Sidebar for input
+
 with st.sidebar:
     st.title("⚡ Bill Prediction Inputs")
-    fan = st.number_input("Fan Usage (kWh)", min_value=0, step=1)
-    fridge = st.number_input("Refrigerator Usage (kWh)", min_value=0, step=1)
-    ac = st.number_input("Air Conditioner Usage (kWh)", min_value=0, step=1)
-    tv = st.number_input("Television Usage (kWh)", min_value=0, step=1)
-    monitor = st.number_input("Monitor Usage (kWh)", min_value=0, step=1)
-    monthly_hours = st.slider("Monthly Appliance Usage (Hours)", min_value=100, max_value=1000, step=1)
-    tariff_rate = st.slider("Tariff Rate (₹ per unit)", min_value=5.0, max_value=15.0, step=0.1, value=8.0)
+    fan = st.number_input("Fan Usage (kWh)", min_value=5,max_value=25, step=1)
+    fridge = st.number_input("Refrigerator Usage (kWh)", min_value=0,max_value=25,step=1)
+    ac = st.number_input("Air Conditioner Usage (kWh)", min_value=0,max_value=10,step=1)
+    tv = st.number_input("Television Usage (kWh)", min_value=0,max_value=25,step=1)
+    monitor = st.number_input("Monitor Usage (kWh)", min_value=0,max_value=20,step=1)
+    monthly_hours = st.slider("Monthly Appliance Usage (Hours)", min_value=50, max_value=1000, step=1)
+    tariff_rate = st.slider("Tariff Rate (₹ per unit)", min_value=7.0, max_value=10.0, step=0.1, value=8.0)
 
 # 🧠 Build input in model order
 motor_pump = 0  # You set this fixed; adjust as needed
