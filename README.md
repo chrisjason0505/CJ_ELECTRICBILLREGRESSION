@@ -18,8 +18,6 @@ This project helps users:
 It uses:
 
 - Appliance usage data (in kWh)
-- Time of year (month)
-- City and electricity provider
 - Local tariff rates
 
 ---
@@ -32,7 +30,7 @@ We’ve deployed this project as a **Streamlit web app** for easy use in the bro
 
 1. Visit the web app
 2. Enter how much electricity your appliances use
-3. Select your city, month, and tariff rate
+3. Select your monthly hour usage and  tariff rate
 4. Click **Predict**
 5. Instantly see your estimated electricity bill!
 
