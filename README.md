@@ -4,6 +4,7 @@
 Welcome to the **Electricity Bill Predictor** — a simple and practical machine learning project that estimates your monthly electricity bill based on how much you use your home appliances.
 
 ✅ **Live App Demo:** [Enjoy!!](https://ibwburtv8qn8rheqfv2yqn.streamlit.app/) 
+The live app files are present in the /**aimlhack** directory
 
 ---
 
